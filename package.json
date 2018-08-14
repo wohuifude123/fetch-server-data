@@ -1,0 +1,20 @@
+{
+  "name": "fetch-server-data",
+  "version": "0.0.1",
+  "description": "",
+  "author": "abbott.liu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wohuifude123/fetch-server-data"
+  },
+  "bugs": {
+    "url": "https://github.com/wohuifude123/fetch-server-data/issues"
+  },
+  "homepage": "https://github.com/wohuifude123/fetch-server-data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "MIT"
+}
