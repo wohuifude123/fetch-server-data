@@ -1,39 +1,41 @@
 module.exports = {
-	fetchData( dataUrl, start ) {
-		return new Promise((resolve, reject) => {
-			fetch(`${dataUrl}/data${(start+ 0 + '').padStart(2, '0')}.json`)
-				.then((data) => {
-					resolve(data.json());
-				}, (error) => {
-					reject(error);
-				})
-		});
-
-	},
-
-	async getData( dataUrl, start ) {
-
+	async get(url, headers, postBody) {
 		const _self = this;
-		let data = await _self.fetchData( dataUrl, start );
-		return data;
+		let response = [];
+		try {
+			const response = await fetch(url, {
+				method: 'GET',
+				body: postBody,
+				headers: headers,
+				mode: 'cors',
+				credentials: 'include'
+			})
+			return await response.json();
 
+		} catch (e) {
+			console.log("Oops, error", e)
+		}
 	},
-	receiveData( dataUrl, start ) {
+	async post(url, headers, postBody) {
 		const _self = this;
-		let data = {};
-
-		_self.getData('virtual/result', 2).then(
-			function(responseThenData) {
-				data = responseThenData;
+		let response = [];
+		try {
+			const response = await fetch(url, {
+				method: 'POST',
+				body: postBody,
+				headers: headers,
+				mode: 'cors',
+				credentials: 'include'
 			})
-			.then(function() {
-				//console.log('abc')
-			})
-			.catch(function(e) {
-				console.log("promise, error =", e);
-			});
+			return await response.json();
 
-		return data;
+		} catch (e) {
+			console.log("Oops, error", e)
+		}
 	}
 }
+
+
+
+
 
